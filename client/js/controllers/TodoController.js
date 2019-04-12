@@ -8,9 +8,9 @@ import TodoForm from '../views/TodoForm.js'
 const TodoController = {
   views: [],
 
-  create(name) {
-    const todo = TodoCollection.create(name)
-    const view = new Todo({ ...todo })
+  async create(name) {
+    const todo = await TodoCollection.create(name)
+    const view = new Todo({ id: todo.id, name: todo.name, done: todo.done })
     view.mount()
   },
 
