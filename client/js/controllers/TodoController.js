@@ -8,6 +8,12 @@ import TodoForm from '../views/TodoForm.js'
 const TodoController = {
   views: [],
 
+  create(name) {
+    const todo = TodoCollection.create(name)
+    const view = new Todo({ ...todo })
+    view.mount()
+  },
+
   async render() {
     const todos = await TodoCollection.read()
     this.views = todos.map(todo => {

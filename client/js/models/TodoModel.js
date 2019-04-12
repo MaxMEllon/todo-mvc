@@ -15,7 +15,14 @@ const TodoCollection = {
       return new TodoModel({ ...todo })
     })
     return this.todos
-  }
+  },
+
+  create(name) {
+    // TODO: API通信
+    const newTodo = new TodoModel({ id: 0, name })
+    this.todos.push(newTodo)
+    return newTodo
+  },
 }
 
 export default TodoCollection
