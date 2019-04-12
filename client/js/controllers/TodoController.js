@@ -14,6 +14,10 @@ const TodoController = {
     view.mount()
   },
 
+  update(id, done) {
+    TodoCollection.update(id, done)
+  },
+
   async render() {
     const todos = await TodoCollection.read()
     this.views = todos.map(todo => {
